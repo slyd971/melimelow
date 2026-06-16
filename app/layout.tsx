@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     images: [
       {
-        url: "/photo-bio.jpeg",
-        width: 818,
-        height: 1116,
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
         alt: "MélyMelOw, artiste contemporaine spécialisée dans la résine et l'acrylique — Paris",
       },
     ],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: ["/photo-bio.jpeg"],
+    images: ["/opengraph-image"],
   },
 };
 
