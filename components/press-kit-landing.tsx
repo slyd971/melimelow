@@ -37,41 +37,41 @@ const kpis = [
 ];
 
 const bioParagraphs = [
-  "MelyMelow est une artiste contemporaine basee a Paris, specialisee dans la resine et l'acrylique. Son travail explore la couleur comme une matiere vivante, fluide et intuitive.",
-  "Chaque composition nait d'un mouvement libre, puis se stabilise dans la transparence et la profondeur de la resine. Ses oeuvres cherchent l'equilibre entre energie, feminite, symbole et instant suspendu.",
+  "MelyMelow est une artiste contemporaine basée à Paris, spécialisée dans la résine et l'acrylique. Son travail explore la couleur comme une matière vivante, fluide et intuitive.",
+  "Chaque composition naît d'un mouvement libre, puis se stabilise dans la transparence et la profondeur de la résine. Ses œuvres cherchent l'équilibre entre énergie, féminité, symbole et instant suspendu.",
 ];
 
 const conceptItems = [
   "Des couleurs qui circulent, se confrontent et trouvent leur propre rythme.",
-  "Une finition resine qui donne profondeur, brillance et sensation d'instant fige.",
-  "Une approche contemporaine, sensible et graphique, pensee pour dialoguer avec l'espace.",
+  "Une finition résine qui donne profondeur, brillance et sensation d'instant figé.",
+  "Une approche contemporaine, sensible et graphique, pensée pour dialoguer avec l'espace.",
 ];
 
 const expositions = [
   {
     year: "2025",
     items: [
-      { name: "Exposition personnelle", location: "Vanves", detail: "18 oeuvres — theme des Antilles" },
-      { name: "Series autour des Antilles", location: "Vanves", detail: "18 oeuvres exposees" },
+      { name: "Exposition personnelle", location: "Vanves", detail: "18 œuvres — thème des Antilles" },
+      { name: "Séries autour des Antilles", location: "Vanves", detail: "18 œuvres exposées" },
     ],
   },
   {
     year: "2024",
     items: [
-      { name: "Fete des Arts", location: "Chuelles (45)", detail: "Festival arts & culture" },
+      { name: "Fête des Arts", location: "Chuelles (45)", detail: "Festival arts & culture" },
     ],
   },
   {
     year: "2022",
     items: [
-      { name: "Concrete Residency", location: "Guadeloupe", detail: "Residence artistique collective — 10 semaines, 11 oeuvres" },
-      { name: "Art & Food Africa", location: "Martinique", detail: "5 oeuvres — theme de la femme africaine" },
+      { name: "Concrete Residency", location: "Guadeloupe", detail: "Résidence artistique collective — 10 semaines, 11 œuvres" },
+      { name: "Art & Food Africa", location: "Martinique", detail: "5 œuvres — thème de la femme africaine" },
     ],
   },
   {
     year: "2021",
     items: [
-      { name: "Art3F", location: "Paris", detail: "Salon d'art contemporain — 11 oeuvres" },
+      { name: "Art3F", location: "Paris", detail: "Salon d’art contemporain — 11 œuvres" },
       { name: "Espace Sorbonne 4", location: "Paris", detail: "Exposition avec QR codes de prose" },
       { name: "Restaurant O’Mango", location: "Paris", detail: "Exposition in situ — 1 mois" },
     ],
@@ -123,8 +123,8 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
             MelyMelow
           </h1>
           <p className="mx-auto mt-5 flex max-w-[21rem] flex-col text-balance text-[11px] font-semibold uppercase leading-6 tracking-[0.16em] text-[#f0e8ec] sm:max-w-[42rem] sm:text-base sm:leading-7 sm:tracking-[0.32em]">
-            <span>Artiste contemporaine specialisee</span>
-            <span>dans la resine et l&apos;acrylique</span>
+            <span>Artiste contemporaine spécialisée</span>
+            <span>dans la résine et l&apos;acrylique</span>
           </p>
           <p className="mt-3 text-xs uppercase tracking-[0.26em] text-[#cfc3bb]">
             Paris
@@ -134,7 +134,7 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
 
       <section
         className="shell border-b border-white/10 py-4"
-        aria-label="Liens reseaux sociaux"
+        aria-label="Liens réseaux sociaux"
       >
         <SectionReveal className="flex flex-wrap items-center justify-center gap-5 sm:gap-9">
           <a
@@ -208,7 +208,7 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
             <div className="overflow-hidden border border-white/10 bg-white/5">
               <Image
                 src="/photo-bio.jpeg"
-                alt="Portrait de MelyMelow"
+                alt="Portrait de MélyMelOw"
                 width={818}
                 height={1116}
                 className="h-auto w-full object-cover"
@@ -223,7 +223,7 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
               id="bio-title"
               className="display-title max-w-[20ch] text-[2.2rem] uppercase leading-[0.94] text-white sm:text-[3.3rem] lg:text-[4rem]"
             >
-              La couleur en mouvement, l'instant fixe dans la resine.
+              La couleur en mouvement, l&apos;instant figé dans la résine.
             </h2>
             <div className="grid gap-6 border-t border-white/10 pt-6 md:grid-cols-2">
               {bioParagraphs.map((paragraph) => (
@@ -233,8 +233,8 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
               ))}
             </div>
             <blockquote className="border-l-2 border-[#f04aa6] py-1 pl-5 font-serif text-xl leading-8 text-white sm:text-2xl sm:leading-9">
-              Dans mon art, la couleur se meut librement jusqu&apos;a ce que la
-              resine fige l&apos;instant.
+              Dans mon art, la couleur se meut librement jusqu&apos;à ce que la
+              résine fige l&apos;instant.
             </blockquote>
             <Link href="/docs/dossier-bio.pdf" className="line-button w-fit" target="_blank">
               Dossier bio
@@ -285,12 +285,12 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
         aria-labelledby="expositions-title"
       >
         <SectionReveal className="border-t border-white/10 pt-10">
-          <p className="kicker">References</p>
+          <p className="kicker">Références</p>
           <h2
             id="expositions-title"
             className="display-title mt-5 text-[2.4rem] uppercase leading-none text-white sm:text-[3.5rem]"
           >
-            Expositions & evenements
+            Expositions & événements
           </h2>
         </SectionReveal>
 
@@ -317,7 +317,7 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
                       <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#18c8d2]">
                         {item.location}
                       </p>
-                      <p className="ml-auto text-[11px] leading-5 text-[#7a6e75]">
+                      <p className="ml-auto text-[11px] leading-5 text-[#cfc3bb]">
                         {item.detail}
                       </p>
                     </motion.div>
@@ -404,7 +404,7 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
             <div className="relative min-h-[22rem] overflow-hidden border border-white/10 bg-white/5">
               <Image
                 src="/photo-contact.jpeg"
-                alt="MelyMelow contact"
+                alt="MélyMelOw contact"
                 fill
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 className="object-cover"
