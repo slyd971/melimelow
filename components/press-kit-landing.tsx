@@ -30,21 +30,21 @@ const socialLinks = {
 const contactEmailHref = `mailto:${contactEmail}?subject=Demande%20presskit%20MelyMelow`;
 
 const kpis = [
-  { value: "Paris", label: "base artistique" },
+  { value: "Paris", label: "base" },
   { value: "Résine", label: "matière signature" },
-  { value: "Acrylique", label: "couleur en mouvement" },
-  { value: "4", label: "oeuvres presskit" },
+  { value: "Acrylique", label: "technique principale" },
+  { value: "4", label: "œuvres presskit" },
 ];
 
 const bioParagraphs = [
-  "MelyMelow est une artiste contemporaine basée à Paris, spécialisée dans la résine et l'acrylique. Son travail explore la couleur comme une matière vivante, fluide et intuitive.",
-  "Chaque composition naît d'un mouvement libre, puis se stabilise dans la transparence et la profondeur de la résine. Ses œuvres cherchent l'équilibre entre énergie, féminité, symbole et instant suspendu.",
+  "MélyMelOw est une artiste contemporaine autodidacte basée à Paris. Ingénieure de formation, elle développe depuis 2013 une pratique hybride mêlant pastel aquarellable, acrylique et résine époxy.",
+  "Chaque composition naît d'un geste libre — spontané, physique — avant que la résine ne fixe les pigments dans leur élan. Son univers puise dans les cultures afro-caribéennes, la spiritualité et les questionnements identitaires.",
 ];
 
 const conceptItems = [
-  "Des couleurs qui circulent, se confrontent et trouvent leur propre rythme.",
-  "Une finition résine qui donne profondeur, brillance et sensation d'instant figé.",
-  "Une approche contemporaine, sensible et graphique, pensée pour dialoguer avec l'espace.",
+  "Pastel, acrylique, bombes de peinture — les matières s'accumulent librement jusqu'à trouver leur propre équilibre.",
+  "La résine époxy fixe les pigments dans leur élan : brillance, profondeur, instant suspendu dans la matière.",
+  "Un univers nourri par le street art, les cultures afro-caribéennes et l'exploration intérieure.",
 ];
 
 const expositions = [
@@ -223,7 +223,7 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
               id="bio-title"
               className="display-title max-w-[20ch] text-[2.2rem] uppercase leading-[0.94] text-white sm:text-[3.3rem] lg:text-[4rem]"
             >
-              La couleur en mouvement, l&apos;instant figé dans la résine.
+              Autodidacte. Ingénieure. Artiste depuis 2013.
             </h2>
             <div className="grid gap-6 border-t border-white/10 pt-6 md:grid-cols-2">
               {bioParagraphs.map((paragraph) => (
