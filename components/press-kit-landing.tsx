@@ -47,6 +47,37 @@ const conceptItems = [
   "Une approche contemporaine, sensible et graphique, pensee pour dialoguer avec l'espace.",
 ];
 
+const expositions = [
+  {
+    year: "2025",
+    items: [
+      { name: "Exposition personnelle", location: "Vanves", detail: "18 oeuvres — theme des Antilles" },
+      { name: "Series autour des Antilles", location: "Vanves", detail: "18 oeuvres exposees" },
+    ],
+  },
+  {
+    year: "2024",
+    items: [
+      { name: "Fete des Arts", location: "Chuelles (45)", detail: "Festival arts & culture" },
+    ],
+  },
+  {
+    year: "2022",
+    items: [
+      { name: "Concrete Residency", location: "Guadeloupe", detail: "Residence artistique collective — 10 semaines, 11 oeuvres" },
+      { name: "Art & Food Africa", location: "Martinique", detail: "5 oeuvres — theme de la femme africaine" },
+    ],
+  },
+  {
+    year: "2021",
+    items: [
+      { name: "Art3F", location: "Paris", detail: "Salon d'art contemporain — 11 oeuvres" },
+      { name: "Espace Sorbonne 4", location: "Paris", detail: "Exposition avec QR codes de prose" },
+      { name: "Restaurant O’Mango", location: "Paris", detail: "Exposition in situ — 1 mois" },
+    ],
+  },
+];
+
 function BgVideo({ src, className }: { src: string; className?: string }) {
   return (
     <video
@@ -246,6 +277,56 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
             ))}
           </div>
         </SectionReveal>
+      </section>
+
+      <section
+        id="expositions"
+        className="shell py-10 sm:py-14 lg:py-16"
+        aria-labelledby="expositions-title"
+      >
+        <SectionReveal className="border-t border-white/10 pt-10">
+          <p className="kicker">References</p>
+          <h2
+            id="expositions-title"
+            className="display-title mt-5 text-[2.4rem] uppercase leading-none text-white sm:text-[3.5rem]"
+          >
+            Expositions & evenements
+          </h2>
+        </SectionReveal>
+
+        <div className="mt-10 space-y-8">
+          {expositions.map((group, gi) => (
+            <SectionReveal key={group.year} delay={gi * 0.06}>
+              <div className="grid gap-4 sm:grid-cols-[6rem_1fr]">
+                <p className="display-title text-[1.1rem] uppercase leading-none text-[#f04aa6] sm:pt-px">
+                  {group.year}
+                </p>
+                <div className="space-y-px">
+                  {group.items.map((item, ii) => (
+                    <motion.div
+                      key={item.name + item.location}
+                      initial={{ opacity: 0, x: -8 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, amount: 0.4 }}
+                      transition={{ duration: 0.5, delay: gi * 0.06 + ii * 0.05 }}
+                      className="flex flex-col gap-1 border-t border-white/8 py-4 sm:flex-row sm:items-baseline sm:gap-6"
+                    >
+                      <p className="display-title text-[1.15rem] uppercase leading-none text-white">
+                        {item.name}
+                      </p>
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#18c8d2]">
+                        {item.location}
+                      </p>
+                      <p className="ml-auto text-[11px] leading-5 text-[#7a6e75]">
+                        {item.detail}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </SectionReveal>
+          ))}
+        </div>
       </section>
 
       <section
