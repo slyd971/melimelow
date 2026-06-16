@@ -264,16 +264,6 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
         className="relative py-10 sm:py-14 lg:py-16"
         aria-labelledby="expositions-title"
       >
-        {/* filigrane : grille + halos de couleur */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:48px_48px]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_90%_10%,rgba(240,74,166,0.07),transparent),radial-gradient(ellipse_50%_60%_at_10%_90%,rgba(24,200,210,0.06),transparent)]"
-        />
-
         <div className="shell relative">
         <SectionReveal className="mb-8 flex items-end justify-between gap-4 sm:mb-10">
           <div>
