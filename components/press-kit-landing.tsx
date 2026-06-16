@@ -177,11 +177,11 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
       </section>
 
       <section className="shell py-8 sm:py-10" aria-label="Indicateurs">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-6 sm:gap-x-16 sm:gap-y-8">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-6 lg:grid-cols-4 lg:gap-x-12">
           {kpis.map((item, index) => (
             <motion.div
               key={item.value}
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 0 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.45 }}
               transition={{
