@@ -33,7 +33,7 @@ const kpis = [
   { value: "Paris", label: "base" },
   { value: "Résine", label: "matière signature" },
   { value: "Acrylique", label: "technique principale" },
-  { value: "4", label: "œuvres presskit" },
+  { value: "4", label: "médiums" },
 ];
 
 const bioParagraphs = [
