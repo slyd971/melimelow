@@ -145,35 +145,29 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
         </SectionReveal>
       </section>
 
-      <section className="shell py-5 sm:py-6" aria-label="Indicateurs">
-        <div className="overflow-hidden border border-white/10 bg-white/[0.03] p-px">
-          <div className="grid grid-cols-1 gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
-            {kpis.map((item, index) => (
-              <motion.div
-                key={item.value}
-                initial={{ opacity: 0, y: 24, scale: 0.98 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.45 }}
-                transition={{
-                  duration: 0.64,
-                  delay: index * 0.08,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                whileHover={{ y: -4, scale: 1.01 }}
-                className="group relative min-w-0 overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(24,200,210,0.16),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.025))] px-3 py-6 text-center sm:px-6 sm:py-8"
-              >
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#f04aa6] to-transparent opacity-70" />
-                <div className="flex min-h-[7.5rem] flex-col items-center justify-center">
-                  <p className="display-title max-w-full break-words text-[1.55rem] uppercase leading-none text-white sm:text-[2.7rem]">
-                    {item.value}
-                  </p>
-                  <p className="mt-3 max-w-[15ch] break-words text-[9px] font-semibold uppercase leading-5 tracking-[0.14em] text-[#cfc3bb] sm:max-w-[18ch] sm:text-[11px] sm:tracking-[0.26em]">
-                    {item.label}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+      <section className="shell py-8 sm:py-10" aria-label="Indicateurs">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-6 sm:gap-x-16 sm:gap-y-8">
+          {kpis.map((item, index) => (
+            <motion.div
+              key={item.value}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.45 }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.08,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="border-t border-white/10 pt-4"
+            >
+              <p className="display-title text-[2rem] uppercase leading-none text-white sm:text-[2.8rem]">
+                {item.value}
+              </p>
+              <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#7a6e75] sm:text-[11px]">
+                {item.label}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </section>
 
