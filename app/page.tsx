@@ -19,21 +19,22 @@ import {
 const baseUrl = getBaseUrl();
 
 export const metadata: Metadata = {
+  title: siteTitle,
   description: siteDescription,
   alternates: {
-    canonical: "/",
+    canonical: "https://www.melymelow.art/",
   },
   openGraph: {
     title: siteTitle,
     description: siteDescription,
-    url: "/",
+    url: "https://www.melymelow.art/",
     type: "website",
     images: [
       {
         url: "/photo-bio.jpeg",
         width: 818,
         height: 1116,
-        alt: "MelyMelow, artiste contemporaine specialisee dans la resine et l'acrylique",
+        alt: "MélyMelOw, artiste contemporaine spécialisée dans la résine et l'acrylique — Paris",
       },
     ],
   },
@@ -64,19 +65,10 @@ export default function Home() {
           addressLocality: "Paris",
           addressCountry: "FR",
         },
-        email: `mailto:${contactEmail}`,
+        email: contactEmail,
         telephone: contactPhone,
-        sameAs: [instagramUrl, tiktokUrl, whatsappChannelUrl, websiteUrl],
-        knowsAbout: ["Resine", "Acrylique", "Art contemporain", "Abstract art"],
-      },
-      {
-        "@type": "VisualArtwork",
-        "@id": `${baseUrl}/#artwork-signature`,
-        name: "Signature MelyMelow",
-        artMedium: "Resine et acrylique",
-        creator: {
-          "@id": `${baseUrl}/#artist`,
-        },
+        sameAs: [instagramUrl, tiktokUrl, whatsappChannelUrl],
+        knowsAbout: ["Résine époxy", "Acrylique", "Art contemporain", "Mixed media", "Cultures afro-caribéennes"],
       },
     ],
   };

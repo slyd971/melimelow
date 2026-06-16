@@ -1,12 +1,12 @@
 export const siteName = "MelyMelow";
-export const brandSignature = "MelyMelow Art";
+export const brandSignature = "MélyMelOw Art";
 export const siteTitle =
-  "MelyMelow | Presskit artiste contemporaine resin art & acrylic";
+  "MelyMelow | Presskit artiste contemporaine — Résine & Acrylique — Paris";
 export const siteDescription =
-  "Presskit de MelyMelow, artiste contemporaine a Paris specialisee dans la resine et l'acrylique, entre couleur libre, mouvement et instant fige.";
+  "Presskit de MélyMelOw, artiste contemporaine autodidacte basée à Paris, spécialisée dans la résine époxy et l'acrylique. Expositions depuis 2021.";
 export const siteUrl = "https://www.melymelow.art/";
 export const websiteUrl = siteUrl;
-export const siteOgImage = "/photo-bio.jpeg";
+export const siteOgImage = `${siteUrl}photo-bio.jpeg`;
 export const contactEmail = "contact@melymelow.art";
 export const contactPhone = "+33624828064";
 export const contactPhoneDisplay = "+33 6 24 82 80 64";
