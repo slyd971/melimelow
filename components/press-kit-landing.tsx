@@ -48,34 +48,14 @@ const conceptItems = [
 ];
 
 const expositions = [
-  {
-    year: "2025",
-    items: [
-      { name: "Exposition personnelle", location: "Vanves", detail: "18 œuvres — thème des Antilles" },
-      { name: "Séries autour des Antilles", location: "Vanves", detail: "18 œuvres exposées" },
-    ],
-  },
-  {
-    year: "2024",
-    items: [
-      { name: "Fête des Arts", location: "Chuelles (45)", detail: "Festival arts & culture" },
-    ],
-  },
-  {
-    year: "2022",
-    items: [
-      { name: "Concrete Residency", location: "Guadeloupe", detail: "Résidence artistique collective — 10 semaines, 11 œuvres" },
-      { name: "Art & Food Africa", location: "Martinique", detail: "5 œuvres — thème de la femme africaine" },
-    ],
-  },
-  {
-    year: "2021",
-    items: [
-      { name: "Art3F", location: "Paris", detail: "Salon d’art contemporain — 11 œuvres" },
-      { name: "Espace Sorbonne 4", location: "Paris", detail: "Exposition avec QR codes de prose" },
-      { name: "Restaurant O’Mango", location: "Paris", detail: "Exposition in situ — 1 mois" },
-    ],
-  },
+  { year: "2025", name: "Exposition personnelle", location: "Vanves", detail: "18 œuvres — thème des Antilles" },
+  { year: "2025", name: "Séries autour des Antilles", location: "Vanves", detail: "18 œuvres exposées" },
+  { year: "2024", name: "Fête des Arts", location: "Chuelles (45)", detail: "Journée arts & culture pluridisciplinaire" },
+  { year: "2022", name: "Concrete Residency", location: "Guadeloupe", detail: "Résidence collective — 10 semaines, 11 œuvres" },
+  { year: "2022", name: "Art & Food Africa", location: "Martinique", detail: "5 œuvres — thème de la femme africaine" },
+  { year: "2021", name: "Art3F", location: "Paris", detail: "Salon international d’art contemporain — 11 œuvres" },
+  { year: "2021", name: "Espace Sorbonne 4", location: "Paris", detail: "Exposition avec QR codes de prose" },
+  { year: "2021", name: "Restaurant O’Mango", location: "Paris", detail: "Exposition in situ — 1 mois" },
 ];
 
 function BgVideo({ src, className }: { src: string; className?: string }) {
@@ -284,47 +264,47 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
         className="shell py-10 sm:py-14 lg:py-16"
         aria-labelledby="expositions-title"
       >
-        <SectionReveal className="border-t border-white/10 pt-10">
-          <p className="kicker">Références</p>
-          <h2
-            id="expositions-title"
-            className="display-title mt-5 text-[2.4rem] uppercase leading-none text-white sm:text-[3.5rem]"
-          >
-            Expositions & événements
-          </h2>
+        <SectionReveal className="mb-8 flex items-end justify-between gap-4 sm:mb-10">
+          <div>
+            <p className="kicker">Références</p>
+            <h2
+              id="expositions-title"
+              className="display-title mt-5 text-[2.4rem] uppercase leading-none text-white sm:text-[3.5rem]"
+            >
+              Expositions & événements
+            </h2>
+          </div>
+          <p className="hidden shrink-0 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#7a6e75] sm:block">
+            {expositions.length} événements
+          </p>
         </SectionReveal>
 
-        <div className="mt-10 space-y-8">
-          {expositions.map((group, gi) => (
-            <SectionReveal key={group.year} delay={gi * 0.06}>
-              <div className="grid gap-4 sm:grid-cols-[6rem_1fr]">
-                <p className="display-title text-[1.1rem] uppercase leading-none text-[#f04aa6] sm:pt-px">
-                  {group.year}
-                </p>
-                <div className="space-y-px">
-                  {group.items.map((item, ii) => (
-                    <motion.div
-                      key={item.name + item.location}
-                      initial={{ opacity: 0, x: -8 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, amount: 0.4 }}
-                      transition={{ duration: 0.5, delay: gi * 0.06 + ii * 0.05 }}
-                      className="flex flex-col gap-1 border-t border-white/8 py-4 sm:flex-row sm:items-baseline sm:gap-6"
-                    >
-                      <p className="display-title text-[1.15rem] uppercase leading-none text-white">
-                        {item.name}
-                      </p>
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#18c8d2]">
-                        {item.location}
-                      </p>
-                      <p className="ml-auto text-[11px] leading-5 text-[#cfc3bb]">
-                        {item.detail}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
+        <div className="border-t border-white/10">
+          {expositions.map((item, i) => (
+            <motion.div
+              key={item.name + item.year}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.45, delay: i * 0.04 }}
+              className="group relative border-b border-white/10 transition-colors duration-200 hover:border-white/20"
+            >
+              <div className="absolute inset-y-0 left-0 w-[2px] scale-y-0 bg-[#f04aa6] transition-transform duration-200 origin-top group-hover:scale-y-100" />
+              <div className="grid grid-cols-[3rem_1fr] gap-x-4 py-5 pl-5 sm:grid-cols-[4rem_1fr_auto] sm:items-center sm:gap-x-8 sm:py-4 lg:grid-cols-[4rem_1fr_11rem_18rem]">
+                <span className="display-title text-[0.8rem] leading-none text-[#f04aa6] sm:text-[0.9rem]">
+                  {item.year}
+                </span>
+                <span className="display-title text-[1.05rem] uppercase leading-none text-white sm:text-[1.2rem]">
+                  {item.name}
+                </span>
+                <span className="col-start-2 mt-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#18c8d2] sm:col-start-auto sm:mt-0 sm:text-right">
+                  {item.location}
+                </span>
+                <span className="col-start-2 mt-1 text-[11px] leading-5 text-[#cfc3bb] sm:col-start-auto sm:mt-0 lg:text-right">
+                  {item.detail}
+                </span>
               </div>
-            </SectionReveal>
+            </motion.div>
           ))}
         </div>
       </section>
