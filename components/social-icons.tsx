@@ -6,13 +6,13 @@ export function InstagramIcon({ className = "size-7" }: { className?: string }) 
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className={className}>
       <defs>
-        <linearGradient id="ig-melimelow" x1="0%" y1="100%" x2="100%" y2="0%">
+        <linearGradient id="ig-melymelow" x1="0%" y1="100%" x2="100%" y2="0%">
           <stop offset="0%" stopColor="#f9ce34" />
           <stop offset="45%" stopColor="#ee2a7b" />
           <stop offset="100%" stopColor="#6228d7" />
         </linearGradient>
       </defs>
-      <rect x="3" y="3" width="18" height="18" rx="5" fill="url(#ig-melimelow)" />
+      <rect x="3" y="3" width="18" height="18" rx="5" fill="url(#ig-melymelow)" />
       <circle cx="12" cy="12" r="4.2" fill="none" stroke="white" strokeWidth="1.8" />
       <circle cx="17.25" cy="6.75" r="1.2" fill="white" />
     </svg>

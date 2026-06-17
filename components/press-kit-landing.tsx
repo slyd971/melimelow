@@ -49,13 +49,12 @@ const conceptItems = [
 
 const expositions = [
   { year: "2025", name: "Exposition personnelle", location: "Vanves", detail: "18 œuvres — thème des Antilles" },
-  { year: "2025", name: "Séries autour des Antilles", location: "Vanves", detail: "18 œuvres exposées" },
   { year: "2024", name: "Fête des Arts", location: "Chuelles (45)", detail: "Journée arts & culture pluridisciplinaire" },
   { year: "2022", name: "Concrete Residency", location: "Guadeloupe", detail: "Résidence collective — 10 semaines, 11 œuvres" },
   { year: "2022", name: "Art & Food Africa", location: "Martinique", detail: "5 œuvres — thème de la femme africaine" },
-  { year: "2021", name: "Art3F", location: "Paris", detail: "Salon international d’art contemporain — 11 œuvres" },
-  { year: "2021", name: "Espace Sorbonne 4", location: "Paris", detail: "Exposition avec QR codes de prose" },
   { year: "2021", name: "Restaurant O’Mango", location: "Paris", detail: "Exposition in situ — 1 mois" },
+  { year: "2021", name: "Espace Sorbonne 4", location: "Paris", detail: "Exposition immersive" },
+  { year: "2021", name: "Art3F", location: "Paris", detail: "Salon international d’art contemporain — 11 œuvres" },
 ];
 
 function BgVideo({ src, className }: { src: string; className?: string }) {
@@ -88,7 +87,7 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
         aria-labelledby="hero-title"
       >
         <BgVideo
-          src="/video-hero-melimelow.mp4"
+          src="/video-hero-melymelow.mp4"
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(8,6,7,0.08),rgba(8,6,7,0.78)),linear-gradient(180deg,rgba(8,6,7,0.2),rgba(8,6,7,0.84))]" />
@@ -316,7 +315,7 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
         className="shell py-10 sm:py-14 lg:py-16"
         aria-labelledby="gallery-title"
       >
-        <SectionReveal className="mb-8 flex flex-col justify-between gap-5 sm:mb-10 md:flex-row md:items-end">
+        <SectionReveal className="mb-8 sm:mb-10">
           <div>
             <p className="kicker">Galerie</p>
             <h2
@@ -326,10 +325,6 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
               Tableaux
             </h2>
           </div>
-          <p className="max-w-[31rem] text-sm leading-7 text-[#cfc3bb]">
-            Selection presskit. Les dimensions physiques peuvent etre completees
-            des reception des fiches techniques.
-          </p>
         </SectionReveal>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -365,7 +360,7 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
 
         <SectionReveal className="mt-8 flex justify-center">
           <a
-            href="https://en.melymelow.art/accueil"
+            href="https://www.melymelow.art/accueil"
             target="_blank"
             rel="noreferrer noopener"
             className="color-button"

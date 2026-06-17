@@ -11,7 +11,6 @@
   --cyan: #18c8d2;
   --pink: #f04aa6;
   --violet: #8d54d8;
-  --gold: #f0c96a;
 }
 
 * {
@@ -127,7 +126,7 @@ body::after {
 
   .color-button {
     @apply inline-flex min-h-11 max-w-full min-w-0 items-center justify-center gap-2 px-4 py-3 text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-[#080607] transition duration-300 sm:text-xs sm:tracking-[0.24em];
-    background: linear-gradient(135deg, var(--cyan), var(--pink) 52%, var(--gold));
+    background: linear-gradient(135deg, var(--cyan), var(--pink));
   }
 
   .color-button:hover {
