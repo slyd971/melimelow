@@ -16,6 +16,7 @@ import {
 import type { Artwork } from "@/lib/gallery";
 import {
   contactEmail,
+  contactPhone,
   contactPhoneDisplay,
   contactWhatsApp,
   siteUrl,
@@ -28,6 +29,21 @@ const socialLinks = {
 };
 
 const contactEmailHref = `mailto:${contactEmail}?subject=Demande%20presskit%20MelyMelow`;
+
+const footerNavLinks = [
+  { href: "#bio", label: "Bio" },
+  { href: "#concept", label: "Concept" },
+  { href: "#expositions", label: "Expositions" },
+  { href: "#gallery", label: "Galerie" },
+  { href: "#contact", label: "Contact" },
+];
+
+const footerSocialLinks = [
+  { href: socialLinks.instagram, label: "Instagram" },
+  { href: socialLinks.tiktok, label: "TikTok" },
+  { href: socialLinks.whatsappChannel, label: "WhatsApp" },
+  { href: siteUrl, label: "Site web" },
+];
 
 const kpis = [
   { value: "Paris", label: "base" },
@@ -436,6 +452,93 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
           </div>
         </SectionReveal>
       </section>
+
+      <footer className="border-t border-white/10 bg-black px-4 py-7 text-white md:px-6 md:py-12">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-5 gap-y-7 sm:grid-cols-4 md:grid-cols-[1.25fr_0.85fr_0.85fr_1fr] md:gap-10">
+          <div className="col-span-2 sm:col-span-1">
+            <Link
+              href="/"
+              className="display-title text-xl uppercase tracking-[0.16em] text-white md:text-2xl md:tracking-[0.18em]"
+            >
+              MelyMelow
+            </Link>
+            <p className="mt-3 max-w-md text-sm leading-6 text-white/58 sm:max-w-none">
+              Artiste contemporaine • Résine • Acrylique. Disponible pour
+              demandes presse, expositions, collaborations et acquisitions.
+            </p>
+            <div className="mt-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/35">
+              Paris · France
+            </div>
+          </div>
+
+          <div>
+            <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#f04aa6] md:tracking-[0.24em]">
+              Navigation
+            </div>
+            <div className="mt-3 grid gap-2 text-sm text-white/68">
+              {footerNavLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="transition hover:text-white"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#f04aa6] md:tracking-[0.24em]">
+              Socials
+            </div>
+            <div className="mt-3 grid gap-2 text-sm text-white/68">
+              {footerSocialLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="transition hover:text-white"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="col-span-2 sm:col-span-1">
+            <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#f04aa6] md:tracking-[0.24em]">
+              Contact
+            </div>
+            <div className="mt-3 grid gap-2 text-sm text-white/68">
+              <a
+                href={contactEmailHref}
+                className="break-all transition hover:text-white"
+              >
+                {contactEmail}
+              </a>
+              <a
+                href={`tel:${contactPhone}`}
+                className="transition hover:text-white"
+              >
+                {contactPhoneDisplay}
+              </a>
+            </div>
+            <div className="mt-5 text-[10px] uppercase tracking-[0.18em] text-white/30">
+              © 2026 MelyMelow Press Kit
+            </div>
+            <a
+              href="https://presskit.fr"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="mt-2 inline-flex text-[10px] uppercase tracking-[0.18em] text-white/30 transition hover:text-white/60"
+            >
+              Powered by Presskit.Fr
+            </a>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
