@@ -3,14 +3,29 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const navLinks = [
-  { href: "#bio", label: "Bio" },
-  { href: "#concept", label: "Concept" },
-  { href: "#gallery", label: "Galerie" },
-  { href: "#contact", label: "Contact" },
-];
+const navLinks = {
+  fr: [
+    { href: "#bio", label: "Bio" },
+    { href: "#concept", label: "Concept" },
+    { href: "#gallery", label: "Galerie" },
+    { href: "#contact", label: "Contact" },
+  ],
+  en: [
+    { href: "#bio", label: "Bio" },
+    { href: "#concept", label: "Concept" },
+    { href: "#gallery", label: "Gallery" },
+    { href: "#contact", label: "Contact" },
+  ],
+};
 
-export function SiteHeader() {
+const ctaLabel = {
+  fr: "Contacter MelyMelow",
+  en: "Contact MelyMelow",
+};
+
+type Lang = "fr" | "en";
+
+export function SiteHeader({ lang = "fr" }: { lang?: Lang }) {
   const [isOpen, setIsOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
@@ -40,7 +55,7 @@ export function SiteHeader() {
           </Link>
 
           <div className="hidden items-center gap-6 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#d5ccd1] sm:flex">
-            {navLinks.map((link) => (
+            {navLinks[lang].map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -49,6 +64,12 @@ export function SiteHeader() {
                 {link.label}
               </Link>
             ))}
+            <a
+              href="#contact"
+              className="color-button py-1.5 text-[9px] tracking-[0.26em]"
+            >
+              {ctaLabel[lang]}
+            </a>
           </div>
 
           <button
@@ -80,7 +101,7 @@ export function SiteHeader() {
 
         {isOpen ? (
           <div className="mt-4 grid gap-3 border-t border-white/10 pt-4 text-right sm:hidden">
-            {navLinks.map((link) => (
+            {navLinks[lang].map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -90,6 +111,13 @@ export function SiteHeader() {
                 {link.label}
               </Link>
             ))}
+            <a
+              href="#contact"
+              className="color-button mt-1 justify-center text-[9px] tracking-[0.26em]"
+              onClick={closeMenu}
+            >
+              {ctaLabel[lang]}
+            </a>
           </div>
         ) : null}
       </nav>

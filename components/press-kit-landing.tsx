@@ -234,7 +234,7 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
 
   return (
     <main className="overflow-x-clip bg-[#080607] text-white">
-      <SiteHeader />
+      <SiteHeader lang={lang} />
 
       <section
         className="relative flex min-h-[76svh] items-center justify-center overflow-hidden pt-16 sm:min-h-[74vh] lg:min-h-[86vh]"
