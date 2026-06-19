@@ -37,6 +37,7 @@ const translations = {
       kicker: "Presskit artiste",
       tagline1: "Artiste contemporaine spécialisée",
       tagline2: "dans la résine et l’acrylique",
+      cta: "Contacter MelyMelow",
     },
     social: {
       ariaSection: "Liens réseaux sociaux",
@@ -119,6 +120,7 @@ const translations = {
       kicker: "Artist Press Kit",
       tagline1: "Contemporary artist specialised",
       tagline2: "in resin and acrylic",
+      cta: "Contact MelyMelow",
     },
     social: {
       ariaSection: "Social media links",
@@ -266,6 +268,13 @@ export function PressKitLanding({ artworks, lang }: PressKitLandingProps) {
           <p className="mt-3 text-xs uppercase tracking-[0.26em] text-[#cfc3bb]">
             Paris
           </p>
+          <a
+            href="#contact"
+            className="color-button mx-auto mt-8"
+          >
+            {t.hero.cta}
+            <ArrowUpRight className="size-4 shrink-0" />
+          </a>
         </SectionReveal>
       </section>
 
