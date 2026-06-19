@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -225,10 +224,15 @@ function BgVideo({ src, className }: { src: string; className?: string }) {
 
 type PressKitLandingProps = {
   artworks: Artwork[];
+  lang: Lang;
 };
 
-export function PressKitLanding({ artworks }: PressKitLandingProps) {
-  const [lang, setLang] = useState<Lang>("fr");
+function switchLang(newLang: Lang) {
+  document.cookie = `locale=${newLang};path=/;max-age=31536000;SameSite=Lax`;
+  window.location.href = newLang === "en" ? "/en" : "/";
+}
+
+export function PressKitLanding({ artworks, lang }: PressKitLandingProps) {
   const t = translations[lang];
   const contactEmailHref = `mailto:${contactEmail}?subject=${t.emailSubject}`;
 
@@ -668,9 +672,9 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
               </span>
               <div className="flex gap-1.5">
                 <button
-                  onClick={() => setLang("fr")}
+                  onClick={() => switchLang("fr")}
                   aria-label="Français"
-                  aria-pressed={lang === "fr"}
+                  aria-current={lang === "fr" ? "true" : undefined}
                   className={`flex h-7 w-9 items-center justify-center rounded-sm border text-base transition ${
                     lang === "fr"
                       ? "border-[#f04aa6] bg-[#f04aa6]/10"
@@ -680,9 +684,9 @@ export function PressKitLanding({ artworks }: PressKitLandingProps) {
                   🇫🇷
                 </button>
                 <button
-                  onClick={() => setLang("en")}
+                  onClick={() => switchLang("en")}
                   aria-label="English"
-                  aria-pressed={lang === "en"}
+                  aria-current={lang === "en" ? "true" : undefined}
                   className={`flex h-7 w-9 items-center justify-center rounded-sm border text-base transition ${
                     lang === "en"
                       ? "border-[#f04aa6] bg-[#f04aa6]/10"

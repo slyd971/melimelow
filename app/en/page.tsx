@@ -8,44 +8,43 @@ import {
   contactPhone,
   getBaseUrl,
   instagramUrl,
-  siteDescription,
-  siteName,
-  siteTitle,
   tiktokUrl,
-  websiteUrl,
   whatsappChannelUrl,
+  websiteUrl,
 } from "@/lib/site";
 
 const baseUrl = getBaseUrl();
 
 export const metadata: Metadata = {
-  title: siteTitle,
-  description: siteDescription,
+  title: "MelyMelow | Artist Press Kit — Resin & Acrylic",
+  description:
+    "Press kit for MélyMelOw, a self-taught contemporary artist based in Paris, specialised in epoxy resin and acrylic. Exhibitions since 2021.",
   alternates: {
-    canonical: "https://www.melymelow.art/",
+    canonical: "https://www.melymelow.art/en",
     languages: {
       fr: "https://www.melymelow.art/",
       en: "https://www.melymelow.art/en",
     },
   },
   openGraph: {
-    title: siteTitle,
-    description: siteDescription,
-    url: "https://www.melymelow.art/",
+    title: "MelyMelow | Artist Press Kit — Resin & Acrylic",
+    description:
+      "Press kit for MélyMelOw, a self-taught contemporary artist based in Paris, specialised in epoxy resin and acrylic. Exhibitions since 2021.",
+    url: "https://www.melymelow.art/en",
     type: "website",
-    locale: "fr_FR",
+    locale: "en_GB",
     images: [
       {
         url: "/photo-bio.jpeg",
         width: 818,
         height: 1116,
-        alt: "MélyMelOw, artiste contemporaine spécialisée dans la résine et l'acrylique — Paris",
+        alt: "MélyMelOw, contemporary artist specialised in resin and acrylic — Paris",
       },
     ],
   },
 };
 
-export default function Home() {
+export default function HomeEn() {
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -53,18 +52,19 @@ export default function Home() {
         "@type": "WebSite",
         "@id": `${baseUrl}/#website`,
         url: baseUrl,
-        name: siteName,
-        description: siteDescription,
-        inLanguage: "fr-FR",
+        name: "MelyMelow",
+        description:
+          "Press kit for MélyMelOw, a self-taught contemporary artist based in Paris, specialised in epoxy resin and acrylic.",
+        inLanguage: "en-GB",
       },
       {
         "@type": "Person",
         "@id": `${baseUrl}/#artist`,
-        name: siteName,
+        name: "MelyMelow",
         alternateName: brandSignature,
         url: websiteUrl,
         image: `${baseUrl}/photo-bio.jpeg`,
-        jobTitle: "Artiste contemporaine",
+        jobTitle: "Contemporary artist",
         address: {
           "@type": "PostalAddress",
           addressLocality: "Paris",
@@ -73,7 +73,7 @@ export default function Home() {
         email: contactEmail,
         telephone: contactPhone,
         sameAs: [instagramUrl, tiktokUrl, whatsappChannelUrl],
-        knowsAbout: ["Résine époxy", "Acrylique", "Art contemporain", "Mixed media", "Cultures afro-caribéennes"],
+        knowsAbout: ["Epoxy resin", "Acrylic", "Contemporary art", "Mixed media", "Afro-Caribbean cultures"],
       },
     ],
   };
@@ -85,7 +85,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <PressKitLanding artworks={artworks} lang="fr" />
+      <PressKitLanding artworks={artworks} lang="en" />
     </>
   );
 }
