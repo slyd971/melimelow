@@ -11,6 +11,7 @@ import {
   siteOgImage,
   siteOgImageHeight,
   siteOgImageWidth,
+  siteName,
   siteUrl,
   tiktokUrl,
   whatsappChannelUrl,
@@ -22,7 +23,7 @@ const baseUrl = getBaseUrl();
 export const metadata: Metadata = {
   title: "MelyMelow | Artist Press Kit — Resin & Acrylic",
   description:
-    "Press kit for MélyMelOw, a self-taught contemporary artist based in Paris, specialised in epoxy resin and acrylic. Exhibitions since 2021.",
+    "Press kit for MélyMelOw, a Paris-based contemporary artist working with epoxy resin, acrylic and Afro-Caribbean cultures.",
   alternates: {
     canonical: `${siteUrl}en`,
     languages: {
@@ -33,8 +34,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MelyMelow | Artist Press Kit — Resin & Acrylic",
     description:
-      "Press kit for MélyMelOw, a self-taught contemporary artist based in Paris, specialised in epoxy resin and acrylic. Exhibitions since 2021.",
+      "Press kit for MélyMelOw, a Paris-based contemporary artist working with epoxy resin, acrylic and Afro-Caribbean cultures.",
     url: `${siteUrl}en`,
+    siteName,
     type: "website",
     locale: "en_GB",
     images: [

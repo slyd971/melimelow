@@ -3,8 +3,8 @@ export const brandSignature = "MélyMelOw Art";
 export const siteTitle =
   "MelyMelow | Presskit artiste — Résine & Acrylique";
 export const siteDescription =
-  "Presskit de MélyMelOw, artiste contemporaine autodidacte basée à Paris, spécialisée dans la résine époxy et l'acrylique. Expositions depuis 2021.";
-export const siteUrl = "https://www.melymelow.art/";
+  "Presskit de MélyMelOw, artiste contemporaine à Paris, entre résine époxy, acrylique et cultures afro-caribéennes.";
+export const siteUrl = "https://presskit.melymelow.art/";
 export const websiteUrl = siteUrl;
 export const siteOgImage = `${siteUrl}og-image.jpeg`;
 export const siteOgImageWidth = 1200;
