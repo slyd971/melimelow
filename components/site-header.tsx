@@ -111,13 +111,6 @@ export function SiteHeader({ lang = "fr" }: { lang?: Lang }) {
                 {link.label}
               </Link>
             ))}
-            <a
-              href="#contact"
-              className="color-button mt-1 justify-center text-[9px] tracking-[0.26em]"
-              onClick={closeMenu}
-            >
-              {ctaLabel[lang]}
-            </a>
           </div>
         ) : null}
       </nav>
