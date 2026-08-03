@@ -8,6 +8,10 @@ import {
   contactPhone,
   getBaseUrl,
   instagramUrl,
+  siteOgImage,
+  siteOgImageHeight,
+  siteOgImageWidth,
+  siteUrl,
   tiktokUrl,
   whatsappChannelUrl,
   websiteUrl,
@@ -20,25 +24,26 @@ export const metadata: Metadata = {
   description:
     "Press kit for MélyMelOw, a self-taught contemporary artist based in Paris, specialised in epoxy resin and acrylic. Exhibitions since 2021.",
   alternates: {
-    canonical: "https://www.melymelow.art/en",
+    canonical: `${siteUrl}en`,
     languages: {
-      fr: "https://www.melymelow.art/",
-      en: "https://www.melymelow.art/en",
+      fr: siteUrl,
+      en: `${siteUrl}en`,
     },
   },
   openGraph: {
     title: "MelyMelow | Artist Press Kit — Resin & Acrylic",
     description:
       "Press kit for MélyMelOw, a self-taught contemporary artist based in Paris, specialised in epoxy resin and acrylic. Exhibitions since 2021.",
-    url: "https://www.melymelow.art/en",
+    url: `${siteUrl}en`,
     type: "website",
     locale: "en_GB",
     images: [
       {
-        url: "/photo-bio.jpeg",
-        width: 818,
-        height: 1116,
-        alt: "MélyMelOw, contemporary artist specialised in resin and acrylic — Paris",
+        url: siteOgImage,
+        width: siteOgImageWidth,
+        height: siteOgImageHeight,
+        alt: "MélyMelOw, contemporary resin and acrylic artist in Paris",
+        type: "image/jpeg",
       },
     ],
   },

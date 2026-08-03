@@ -6,7 +6,9 @@ export const siteDescription =
   "Presskit de MélyMelOw, artiste contemporaine autodidacte basée à Paris, spécialisée dans la résine époxy et l'acrylique. Expositions depuis 2021.";
 export const siteUrl = "https://www.melymelow.art/";
 export const websiteUrl = siteUrl;
-export const siteOgImage = `${siteUrl}photo-bio.jpeg`;
+export const siteOgImage = `${siteUrl}og-image.jpeg`;
+export const siteOgImageWidth = 1200;
+export const siteOgImageHeight = 630;
 export const contactEmail = "contact@melymelow.art";
 export const contactPhone = "+33624828064";
 export const contactPhoneDisplay = "+33 6 24 82 80 64";

@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { siteDescription, siteName, siteTitle } from "@/lib/site";
+import {
+  siteDescription,
+  siteName,
+  siteOgImage,
+  siteOgImageHeight,
+  siteOgImageWidth,
+  siteTitle,
+  siteUrl,
+} from "@/lib/site";
 
 export const metadata: Metadata = {
   title: siteTitle,
   description: siteDescription,
-  metadataBase: new URL("https://www.melymelow.art"),
+  metadataBase: new URL(siteUrl),
   robots: {
     index: true,
     follow: true,
@@ -14,15 +22,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: siteTitle,
     description: siteDescription,
+    url: siteUrl,
     siteName,
     type: "website",
     locale: "fr_FR",
     images: [
       {
-        url: "/photo-bio.jpeg",
-        width: 818,
-        height: 1116,
-        alt: "MélyMelOw, artiste contemporaine spécialisée dans la résine et l'acrylique — Paris",
+        url: siteOgImage,
+        width: siteOgImageWidth,
+        height: siteOgImageHeight,
+        alt: "MélyMelOw, artiste contemporaine résine et acrylique à Paris",
+        type: "image/jpeg",
       },
     ],
   },
@@ -30,7 +40,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: ["/photo-bio.jpeg"],
+    images: [
+      {
+        url: siteOgImage,
+        alt: "MélyMelOw, artiste contemporaine résine et acrylique à Paris",
+      },
+    ],
   },
 };
 
