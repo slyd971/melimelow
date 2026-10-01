@@ -3,7 +3,15 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, CalendarDays, Download, MapPin, Palette, Sparkles } from "lucide-react";
+import {
+  ArrowUpRight,
+  CalendarDays,
+  Download,
+  FolderOpen,
+  MapPin,
+  Palette,
+  Sparkles,
+} from "lucide-react";
 import { ArtworkSlider } from "@/components/artwork-slider";
 import { SectionReveal } from "@/components/section-reveal";
 import { SiteHeader } from "@/components/site-header";
@@ -20,6 +28,7 @@ import {
   contactPhone,
   contactPhoneDisplay,
   contactWhatsApp,
+  pressKitUrl,
   siteUrl,
 } from "@/lib/site";
 
@@ -39,6 +48,7 @@ const translations = {
       tagline1: "Artiste contemporaine spécialisée",
       tagline2: "dans la résine et l’acrylique",
       cta: "Contacter MelyMelow",
+      pressKit: "Kit presse complet",
     },
     social: {
       ariaSection: "Liens réseaux sociaux",
@@ -147,6 +157,7 @@ const translations = {
       tagline1: "Contemporary artist specialised",
       tagline2: "in resin and acrylic",
       cta: "Contact MelyMelow",
+      pressKit: "Full press kit",
     },
     social: {
       ariaSection: "Social media links",
@@ -322,13 +333,21 @@ export function PressKitLanding({ artworks, madrasArtworks, lang }: PressKitLand
           <p className="mt-3 text-xs uppercase tracking-[0.26em] text-[#cfc3bb]">
             Paris
           </p>
-          <a
-            href="#contact"
-            className="color-button mx-auto mt-8"
-          >
-            {t.hero.cta}
-            <ArrowUpRight className="size-4 shrink-0" />
-          </a>
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a href="#contact" className="color-button">
+              {t.hero.cta}
+              <ArrowUpRight className="size-4 shrink-0" />
+            </a>
+            <a
+              href={pressKitUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="line-button backdrop-blur-sm"
+            >
+              {t.hero.pressKit}
+              <FolderOpen className="size-4 shrink-0" />
+            </a>
+          </div>
         </SectionReveal>
       </section>
 

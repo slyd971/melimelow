@@ -15,6 +15,8 @@ export const contactPhoneDisplay = "+33 6 24 82 80 64";
 export const contactWhatsApp = "https://wa.me/33624828064";
 export const instagramUrl = "https://www.instagram.com/melymelow_art/";
 export const tiktokUrl = "https://www.tiktok.com/@melymelow";
+export const pressKitUrl =
+  "https://drive.google.com/drive/folders/1pRx_8o5d5pVLAnNssPp-Uth63mO85ojE";
 export const whatsappChannelUrl =
   "https://whatsapp.com/channel/0029Vb7NNBG5kg7Bf3koQS3Q";
 
