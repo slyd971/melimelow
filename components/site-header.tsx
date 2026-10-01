@@ -7,12 +7,14 @@ const navLinks = {
   fr: [
     { href: "#bio", label: "Bio" },
     { href: "#concept", label: "Concept" },
+    { href: "#madras-mood", label: "Madras Mood" },
     { href: "#gallery", label: "Galerie" },
     { href: "#contact", label: "Contact" },
   ],
   en: [
     { href: "#bio", label: "Bio" },
     { href: "#concept", label: "Concept" },
+    { href: "#madras-mood", label: "Madras Mood" },
     { href: "#gallery", label: "Gallery" },
     { href: "#contact", label: "Contact" },
   ],

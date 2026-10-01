@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Download, Palette, Sparkles } from "lucide-react";
+import { ArrowUpRight, CalendarDays, Download, MapPin, Palette, Sparkles } from "lucide-react";
+import { ArtworkSlider } from "@/components/artwork-slider";
 import { SectionReveal } from "@/components/section-reveal";
 import { SiteHeader } from "@/components/site-header";
 import {
@@ -79,10 +80,34 @@ const translations = {
       title: "Expositions & événements",
       countLabel: (n: number) => `${n} événements`,
     },
+    madras: {
+      kicker: "Nouvelle exposition",
+      title: "Madras Mood",
+      tagline: "Creole roots. Urban soul.",
+      intro:
+        "Une série qui célèbre la culture afro-caribéenne en la mêlant aux codes urbains du Hip Hop des années 90/2000. Tissus madras, acrylique, résine et cernes 3D.",
+      dates: "9 – 11 octobre 2026",
+      venue: "Galerie M",
+      address: "18 rue Lally-Tollendal, 75019 Paris",
+      schedule: [
+        { label: "Vernissage", value: "Vendredi 9 octobre · 19h – 22h" },
+        { label: "Ouverture au public", value: "Ven. 16h – 22h · Sam. & Dim. 10h – 18h" },
+      ],
+      flyerAlt:
+        "Flyer de l’exposition Madras Mood de MélyMelOw à la Galerie M, du 9 au 11 octobre 2026",
+      flyerLabel: "Voir le flyer",
+      dossierLabel: "Dossier artistique",
+      worksTitle: "Les œuvres de la série",
+      sliderLabel: "Œuvres de la série Madras Mood",
+    },
     gallery: {
       kicker: "Galerie",
       title: "Tableaux",
       cta: "Voir plus de tableaux",
+      sliderLabel: "Galerie de tableaux",
+      prev: "Œuvre précédente",
+      next: "Œuvre suivante",
+      slide: (i: number, n: number) => `Œuvre ${i + 1} sur ${n}`,
     },
     contact: {
       kicker: "Contact",
@@ -100,6 +125,7 @@ const translations = {
         { href: "#bio", label: "Bio" },
         { href: "#concept", label: "Concept" },
         { href: "#expositions", label: "Expositions" },
+        { href: "#madras-mood", label: "Madras Mood" },
         { href: "#gallery", label: "Galerie" },
         { href: "#contact", label: "Contact" },
       ],
@@ -161,10 +187,34 @@ const translations = {
       title: "Exhibitions & events",
       countLabel: (n: number) => `${n} events`,
     },
+    madras: {
+      kicker: "New exhibition",
+      title: "Madras Mood",
+      tagline: "Creole roots. Urban soul.",
+      intro:
+        "A series celebrating Afro-Caribbean culture blended with the urban codes of 90s/2000s Hip Hop. Madras fabric, acrylic, resin and 3D outlines.",
+      dates: "9 – 11 October 2026",
+      venue: "Galerie M",
+      address: "18 rue Lally-Tollendal, 75019 Paris",
+      schedule: [
+        { label: "Opening night", value: "Friday 9 October · 7pm – 10pm" },
+        { label: "Open to the public", value: "Fri. 4pm – 10pm · Sat. & Sun. 10am – 6pm" },
+      ],
+      flyerAlt:
+        "Flyer for MélyMelOw’s Madras Mood exhibition at Galerie M, 9 to 11 October 2026",
+      flyerLabel: "View flyer",
+      dossierLabel: "Artistic dossier",
+      worksTitle: "Works from the series",
+      sliderLabel: "Madras Mood series artworks",
+    },
     gallery: {
       kicker: "Gallery",
       title: "Paintings",
       cta: "See more artworks",
+      sliderLabel: "Paintings gallery",
+      prev: "Previous artwork",
+      next: "Next artwork",
+      slide: (i: number, n: number) => `Artwork ${i + 1} of ${n}`,
     },
     contact: {
       kicker: "Contact",
@@ -182,6 +232,7 @@ const translations = {
         { href: "#bio", label: "Bio" },
         { href: "#concept", label: "Concept" },
         { href: "#expositions", label: "Exhibitions" },
+        { href: "#madras-mood", label: "Madras Mood" },
         { href: "#gallery", label: "Gallery" },
         { href: "#contact", label: "Contact" },
       ],
@@ -199,6 +250,8 @@ const translations = {
 };
 
 const expositions = [
+  { year: "2026", name: "Galerie M — Madras Mood", location: "Paris", detail: "Exposition personnelle — 9 au 11 octobre" },
+  { year: "2026", name: "Art3F", location: "Paris", detail: "Salon international d'art contemporain — série Madras Mood" },
   { year: "2025", name: "Exposition personnelle", location: "Vanves", detail: "18 œuvres — thème des Antilles" },
   { year: "2024", name: "Fête des Arts", location: "Chuelles (45)", detail: "Journée arts & culture pluridisciplinaire" },
   { year: "2022", name: "Concrete Residency", location: "Guadeloupe", detail: "Résidence collective — 10 semaines, 11 œuvres" },
@@ -226,6 +279,7 @@ function BgVideo({ src, className }: { src: string; className?: string }) {
 
 type PressKitLandingProps = {
   artworks: Artwork[];
+  madrasArtworks: Artwork[];
   lang: Lang;
 };
 
@@ -234,7 +288,7 @@ function switchLang(newLang: Lang) {
   window.location.href = newLang === "en" ? "/en" : "/";
 }
 
-export function PressKitLanding({ artworks, lang }: PressKitLandingProps) {
+export function PressKitLanding({ artworks, madrasArtworks, lang }: PressKitLandingProps) {
   const t = translations[lang];
   const contactEmailHref = `mailto:${contactEmail}?subject=${t.emailSubject}`;
 
@@ -477,6 +531,120 @@ export function PressKitLanding({ artworks, lang }: PressKitLandingProps) {
       </section>
 
       <section
+        id="madras-mood"
+        className="relative py-10 sm:py-14 lg:py-16"
+        aria-labelledby="madras-title"
+      >
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(240,74,166,0.06)_30%,rgba(24,200,210,0.05)_70%,transparent)]" />
+        <div className="shell relative">
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-12">
+            <SectionReveal>
+              <a
+                href="/madras-mood/flyer-exp-madras-mood.jpeg"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label={t.madras.flyerLabel}
+                className="group block overflow-hidden border border-white/10 bg-white/5"
+              >
+                <Image
+                  src="/madras-mood/flyer-exp-madras-mood.jpeg"
+                  alt={t.madras.flyerAlt}
+                  width={1254}
+                  height={1254}
+                  sizes="(min-width: 1024px) 38vw, 100vw"
+                  className="h-auto w-full transition duration-700 group-hover:scale-[1.02]"
+                />
+              </a>
+            </SectionReveal>
+
+            <SectionReveal delay={0.08} className="min-w-0 space-y-6">
+              <p className="kicker">{t.madras.kicker}</p>
+              <h2
+                id="madras-title"
+                className="display-title text-[2.6rem] uppercase leading-none text-white sm:text-[4rem] lg:text-[4.8rem]"
+              >
+                {t.madras.title}
+              </h2>
+              <p className="font-serif text-xl italic text-[#f04aa6] sm:text-2xl">
+                {t.madras.tagline}
+              </p>
+              <p className="max-w-xl text-[1rem] leading-8 text-[#d0c8c1]">
+                {t.madras.intro}
+              </p>
+
+              <div className="grid gap-5 border-t border-white/10 pt-6 sm:grid-cols-2">
+                <div className="flex gap-3">
+                  <CalendarDays className="mt-0.5 size-5 shrink-0 text-[#18c8d2]" />
+                  <div>
+                    <p className="display-title text-lg uppercase text-white">
+                      {t.madras.dates}
+                    </p>
+                    {t.madras.schedule.map((item) => (
+                      <p key={item.label} className="mt-1 text-[11px] leading-5 text-[#cfc3bb]">
+                        <span className="font-semibold uppercase tracking-[0.14em] text-[#f04aa6]">
+                          {item.label}
+                        </span>{" "}
+                        {item.value}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex gap-3">
+                  <MapPin className="mt-0.5 size-5 shrink-0 text-[#18c8d2]" />
+                  <div>
+                    <p className="display-title text-lg uppercase text-white">
+                      {t.madras.venue}
+                    </p>
+                    <p className="mt-1 text-[11px] leading-5 text-[#cfc3bb]">
+                      {t.madras.address}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="/madras-mood/dossier-artistique-madras-mood.pdf"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="line-button w-fit"
+                >
+                  {t.madras.dossierLabel}
+                  <Download className="size-4" />
+                </a>
+                <a
+                  href="/madras-mood/flyer-exp-madras-mood.jpeg"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="line-button w-fit"
+                >
+                  {t.madras.flyerLabel}
+                  <ArrowUpRight className="size-4" />
+                </a>
+              </div>
+            </SectionReveal>
+          </div>
+
+          <SectionReveal className="mt-12 sm:mt-14">
+            <p className="mb-6 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#7a6e75] sm:text-[11px]">
+              {t.madras.worksTitle}
+            </p>
+            <ArtworkSlider
+              artworks={madrasArtworks}
+              ariaLabel={t.madras.sliderLabel}
+              prevLabel={t.gallery.prev}
+              nextLabel={t.gallery.next}
+              slideLabel={t.gallery.slide}
+              fit="contain"
+              aspectClassName="aspect-[5/7]"
+              slideClassName="basis-[78%] sm:basis-[40%] lg:basis-[23.5%]"
+              sizes="(min-width: 1024px) 24vw, (min-width: 640px) 40vw, 78vw"
+            />
+          </SectionReveal>
+        </div>
+      </section>
+
+      <section
         id="gallery"
         className="shell py-10 sm:py-14 lg:py-16"
         aria-labelledby="gallery-title"
@@ -493,36 +661,15 @@ export function PressKitLanding({ artworks, lang }: PressKitLandingProps) {
           </div>
         </SectionReveal>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {artworks.map((artwork, index) => (
-            <motion.article
-              key={artwork.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.7, delay: index * 0.06 }}
-              className="group overflow-hidden border border-white/10 bg-white/[0.035]"
-            >
-              <div className="relative aspect-[4/5] overflow-hidden bg-black/30">
-                <Image
-                  src={artwork.image}
-                  alt={artwork.alt}
-                  fill
-                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover transition duration-700 group-hover:scale-105"
-                />
-              </div>
-              <div className="border-t border-white/10 p-4">
-                <h3 className="display-title text-2xl uppercase text-white">
-                  {artwork.title}
-                </h3>
-                <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#cfc3bb]">
-                  {artwork.dimensions}
-                </p>
-              </div>
-            </motion.article>
-          ))}
-        </div>
+        <ArtworkSlider
+          artworks={artworks}
+          ariaLabel={t.gallery.sliderLabel}
+          prevLabel={t.gallery.prev}
+          nextLabel={t.gallery.next}
+          slideLabel={t.gallery.slide}
+          slideClassName="basis-[82%] sm:basis-[46%] lg:basis-[30%]"
+          sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 82vw"
+        />
 
         <SectionReveal className="mt-8 flex justify-center">
           <a

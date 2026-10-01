@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { PressKitLanding } from "@/components/press-kit-landing";
-import { artworks } from "@/lib/gallery";
+import { artworks, madrasArtworks } from "@/lib/gallery";
 import {
   brandSignature,
   contactEmail,
@@ -91,7 +91,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <PressKitLanding artworks={artworks} lang="fr" />
+      <PressKitLanding artworks={artworks} madrasArtworks={madrasArtworks} lang="fr" />
     </>
   );
 }
