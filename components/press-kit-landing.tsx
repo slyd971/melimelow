@@ -3,11 +3,12 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import {
   ArrowUpRight,
   CalendarDays,
+  ChevronDown,
   Download,
-  FolderOpen,
   MapPin,
   Palette,
   Sparkles,
@@ -89,6 +90,8 @@ const translations = {
       kicker: "Références",
       title: "Expositions & événements",
       countLabel: (n: number) => `${n} événements`,
+      showMore: (n: number) => `Voir plus (${n})`,
+      showLess: "Voir moins",
     },
     madras: {
       kicker: "Nouvelle exposition",
@@ -197,6 +200,8 @@ const translations = {
       kicker: "References",
       title: "Exhibitions & events",
       countLabel: (n: number) => `${n} events`,
+      showMore: (n: number) => `See more (${n})`,
+      showLess: "See less",
     },
     madras: {
       kicker: "New exhibition",
@@ -272,6 +277,8 @@ const expositions = [
   { year: "2021", name: "Art3F", location: "Paris", detail: "Salon international d'art contemporain — 11 œuvres" },
 ];
 
+const featuredExpositionsCount = 2;
+
 function BgVideo({ src, className }: { src: string; className?: string }) {
   return (
     <video
@@ -301,6 +308,18 @@ function switchLang(newLang: Lang) {
 
 export function PressKitLanding({ artworks, madrasArtworks, lang }: PressKitLandingProps) {
   const t = translations[lang];
+  const [showAllExpositions, setShowAllExpositions] = useState(false);
+  const visibleExpositions = showAllExpositions
+    ? expositions
+    : expositions.slice(0, featuredExpositionsCount);
+
+  const toggleExpositions = () => {
+    if (showAllExpositions) {
+      document.getElementById("expositions")?.scrollIntoView({ behavior: "smooth" });
+    }
+    setShowAllExpositions((value) => !value);
+  };
+
   const contactEmailHref = `mailto:${contactEmail}?subject=${t.emailSubject}`;
 
   return (
@@ -345,7 +364,6 @@ export function PressKitLanding({ artworks, madrasArtworks, lang }: PressKitLand
               className="line-button backdrop-blur-sm"
             >
               {t.hero.pressKit}
-              <FolderOpen className="size-4 shrink-0" />
             </a>
           </div>
         </SectionReveal>
@@ -519,13 +537,16 @@ export function PressKitLanding({ artworks, madrasArtworks, lang }: PressKitLand
           </SectionReveal>
 
           <div className="border-t border-white/10">
-            {expositions.map((item, i) => (
+            {visibleExpositions.map((item, i) => (
               <motion.div
                 key={item.name + item.year}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.45, delay: i * 0.04 }}
+                transition={{
+                  duration: 0.45,
+                  delay: (i < featuredExpositionsCount ? i : i - featuredExpositionsCount) * 0.04,
+                }}
                 className="group relative border-b border-white/10 transition-colors duration-200 hover:border-white/20"
               >
                 <div className="absolute inset-y-0 left-0 w-[2px] scale-y-0 bg-[#f04aa6] transition-transform duration-200 origin-top group-hover:scale-y-100" />
@@ -546,6 +567,26 @@ export function PressKitLanding({ artworks, madrasArtworks, lang }: PressKitLand
               </motion.div>
             ))}
           </div>
+
+          {expositions.length > featuredExpositionsCount ? (
+            <div className="mt-6 flex justify-center">
+              <button
+                type="button"
+                onClick={toggleExpositions}
+                aria-expanded={showAllExpositions}
+                className="line-button"
+              >
+                {showAllExpositions
+                  ? t.expositions.showLess
+                  : t.expositions.showMore(expositions.length - featuredExpositionsCount)}
+                <ChevronDown
+                  className={`size-4 shrink-0 transition-transform duration-300 ${
+                    showAllExpositions ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+            </div>
+          ) : null}
         </div>
       </section>
 
