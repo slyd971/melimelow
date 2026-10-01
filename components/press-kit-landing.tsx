@@ -352,8 +352,8 @@ export function PressKitLanding({ artworks, madrasArtworks, lang }: PressKitLand
           <p className="mt-3 text-xs uppercase tracking-[0.26em] text-[#cfc3bb]">
             Paris
           </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a href="#contact" className="color-button">
+          <div className="mx-auto mt-8 grid w-full max-w-[18rem] gap-3 sm:max-w-[36rem] sm:grid-cols-2">
+            <a href="#contact" className="color-button w-full">
               {t.hero.cta}
               <ArrowUpRight className="size-4 shrink-0" />
             </a>
@@ -361,7 +361,7 @@ export function PressKitLanding({ artworks, madrasArtworks, lang }: PressKitLand
               href={pressKitUrl}
               target="_blank"
               rel="noreferrer noopener"
-              className="line-button backdrop-blur-sm"
+              className="line-button w-full backdrop-blur-sm"
             >
               {t.hero.pressKit}
             </a>

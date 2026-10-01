@@ -34,6 +34,18 @@ export const artworks: Artwork[] = [
 
 export const madrasArtworks: Artwork[] = [
   {
+    title: "Hope",
+    dimensions: "50 cm x 70 cm - Tissus madras + Acrylique + Cernes 3D",
+    image: "/madras-mood/madras-mood1.jpeg",
+    alt: "Tableau Hope par MelyMelow, série Madras Mood",
+  },
+  {
+    title: "Kwasi",
+    dimensions: "50 cm x 70 cm - Tissus madras + Acrylique + Cernes 3D",
+    image: "/madras-mood/madras-mood3.jpeg",
+    alt: "Tableau Kwasi par MelyMelow, série Madras Mood",
+  },
+  {
     title: "Maya",
     dimensions: "50 cm x 70 cm - Tissus madras + Résine + Acrylique + Cernes 3D",
     image: "/madras-mood/madras-mood4.jpeg",
@@ -44,18 +56,6 @@ export const madrasArtworks: Artwork[] = [
     dimensions: "50 cm x 70 cm - Tissus madras + Résine + Acrylique + Cernes 3D",
     image: "/madras-mood/madras-mood2.jpeg",
     alt: "Tableau Melody par MelyMelow, série Madras Mood",
-  },
-  {
-    title: "Kwasi",
-    dimensions: "50 cm x 70 cm - Tissus madras + Acrylique + Cernes 3D",
-    image: "/madras-mood/madras-mood3.jpeg",
-    alt: "Tableau Kwasi par MelyMelow, série Madras Mood",
-  },
-  {
-    title: "Hope",
-    dimensions: "50 cm x 70 cm - Tissus madras + Acrylique + Cernes 3D",
-    image: "/madras-mood/madras-mood1.jpeg",
-    alt: "Tableau Hope par MelyMelow, série Madras Mood",
   },
   {
     title: "Jamarly",
