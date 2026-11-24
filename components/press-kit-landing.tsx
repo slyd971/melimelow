@@ -259,7 +259,7 @@ const translations = {
         { href: siteUrl, label: "Website" },
       ],
       copyright: "© 2026 MelyMelow Press Kit",
-      poweredBy: "Press kit artiste réalisé par",
+      poweredBy: "Artist press kit by",
       switcherLabel: "Language",
     },
   },
