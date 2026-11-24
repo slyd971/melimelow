@@ -149,7 +149,7 @@ const translations = {
         { href: siteUrl, label: "Site web" },
       ],
       copyright: "© 2026 MelyMelow Press Kit",
-      poweredBy: "Powered by Presskit.Fr",
+      poweredBy: "Press kit artiste réalisé par",
       switcherLabel: "Langue",
     },
   },
@@ -259,7 +259,7 @@ const translations = {
         { href: siteUrl, label: "Website" },
       ],
       copyright: "© 2026 MelyMelow Press Kit",
-      poweredBy: "Powered by Presskit.Fr",
+      poweredBy: "Press kit artiste réalisé par",
       switcherLabel: "Language",
     },
   },
@@ -917,14 +917,17 @@ export function PressKitLanding({ artworks, madrasArtworks, lang }: PressKitLand
             <div className="mt-4 text-[10px] uppercase tracking-[0.18em] text-white/30">
               {t.footer.copyright}
             </div>
-            <a
-              href="https://presskit.fr"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="mt-2 inline-flex text-[10px] uppercase tracking-[0.18em] text-white/30 transition hover:text-white/60"
-            >
-              {t.footer.poweredBy}
-            </a>
+            <div className="mt-2 text-[10px] uppercase tracking-[0.18em] text-white/30">
+              {t.footer.poweredBy}{" "}
+              <a
+                href="https://www.presskit.fr/artiste"
+                target="_blank"
+                rel="noopener"
+                className="whitespace-nowrap underline underline-offset-4 transition hover:text-white/60"
+              >
+                PressKit For You
+              </a>
+            </div>
           </div>
         </div>
       </footer>
